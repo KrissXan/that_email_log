@@ -16,7 +16,7 @@ private
     def find_image_path
         return render_404 unless params[:image] =~ %r{\A[0-9a-z_\-]+\z}i
         @image_path = File.join(Redmine::Plugin.find(:that_email_log).assets_directory, 'images', "#{params[:image]}.png")
-        render_404 unless File.exists?(@image_path)
+        render_404 unless File.exist?(@image_path)
     end
 
 end
